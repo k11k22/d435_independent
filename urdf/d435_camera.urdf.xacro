@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot name="d435_camera" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- 독립 모델의 기준 링크를 정의 (여기서는 "base_link") -->
+  <link name="base_link"/>
+
+  <!-- realsense_gazebo_description 패키지의 D435 URDF xacro 파일 포함 -->
+  <xacro:include filename="$(find realsense_gazebo_description)/urdf/_d435.urdf.xacro"/>
+
+  <!-- sensor_d435 매크로를 통해 카메라 센서 정의 -->
+  <xacro:sensor_d435 parent="base_link" name="D435_camera" topics_ns="D435_camera">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:sensor_d435>
+</robot>
